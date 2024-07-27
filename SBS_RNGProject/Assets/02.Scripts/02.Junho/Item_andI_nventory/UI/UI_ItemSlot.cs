@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 {
+    [SerializeField] private UI_ItemTooltip itemTooltip;
+
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemText;
 
@@ -43,7 +45,6 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
-        // TODO => Show ItemData in Itme Tooltip
+        itemTooltip.SetTooltip(item.data);
     }
 }

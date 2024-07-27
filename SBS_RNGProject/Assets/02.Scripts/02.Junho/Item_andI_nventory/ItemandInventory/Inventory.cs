@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform inventorySlotParent;
     private UI_ItemSlot[] inventoryItemSlot;
 
+    [SerializeField] private ItemData testItem01;
+
     private void Awake()
     {
         if (Instance == null)
@@ -36,7 +38,15 @@ public class Inventory : MonoBehaviour
         inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
     }
 
-    private void AddStash(ItemData _item)
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            AddItem(testItem01);
+        }
+    }
+
+    private void AddItem(ItemData _item)
     {
         if (ItemDictionary.TryGetValue(_item, out InventoryItem value))
         {
