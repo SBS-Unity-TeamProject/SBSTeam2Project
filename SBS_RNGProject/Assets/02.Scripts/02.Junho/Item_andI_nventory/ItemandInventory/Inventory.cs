@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     private UI_ItemSlot[] inventoryItemSlot;
 
     [SerializeField] private ItemData testItem01;
+    [SerializeField] private ItemData testItem02;
 
     private void Awake()
     {
@@ -43,6 +44,11 @@ public class Inventory : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F))
         {
             AddItem(testItem01);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            AddItem(testItem02);
         }
     }
 
