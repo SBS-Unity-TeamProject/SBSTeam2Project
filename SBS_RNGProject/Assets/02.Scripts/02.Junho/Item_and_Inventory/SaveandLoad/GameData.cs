@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 
-public class GaemData
+public class GameData
 {
+    public int gold;
     public SerializableDictionary<string, int> inventoryItem;
 
-    public void AA()
+    public GameData()
     {
-        string A = "";
-        int B = 0;
+        this.gold = 0;
 
-        inventoryItem.Add(A, B);
+        inventoryItem = new SerializableDictionary<string, int>();
     }
-        
 }

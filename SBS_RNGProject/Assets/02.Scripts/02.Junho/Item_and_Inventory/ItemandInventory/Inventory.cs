@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, ISaveManager
 {
     public static Inventory Instance;
 
@@ -98,4 +98,27 @@ public class Inventory : MonoBehaviour
             inventoryItemSlot[i].UpdateSlot(item[i]);
         }
     }
+
+
+    #region SaveandLoad
+    public void Save()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Load()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void LoadData(GameData _data)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        throw new System.NotImplementedException();
+    }
+    #endregion
 }

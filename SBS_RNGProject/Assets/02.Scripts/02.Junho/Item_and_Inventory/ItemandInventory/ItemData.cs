@@ -23,7 +23,8 @@ public class ItemData : ScriptableObject
     public string itemName;
     public Sprite icon;
     public string itemDescription;
-    public string itemID;
+    public string itemIDStr;
+    public int itemID;
 
     [Range(0, 100)]
     public float dropChance;
@@ -34,7 +35,7 @@ public class ItemData : ScriptableObject
     {
 #if UNITY_EDITOR
         string path = AssetDatabase.GetAssetPath(this);
-        itemID = AssetDatabase.AssetPathToGUID(path);
+        itemIDStr = AssetDatabase.AssetPathToGUID(path);
 #endif
     }
 

@@ -1,7 +1,6 @@
 public interface ISaveManager
 {
-    public void Save();
-
-    public void Load();
+    public void LoadData(GameData _data);
+    public void SaveData(ref GameData _data);
 
 }
