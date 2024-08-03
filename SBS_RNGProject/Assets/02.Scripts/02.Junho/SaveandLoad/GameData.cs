@@ -6,13 +6,13 @@ public class GameData
 {
     public int gold;
 
-    public SerializableDictionary<string, int> inventoryItem;
+    public SerializableDictionary<string, int> inventory;
     public SerializableDictionary<string, float> volumSettings;
 
     public GameData()
     {
         this.gold = 0;
 
-        inventoryItem = new SerializableDictionary<string, int>();
+        inventory = new SerializableDictionary<string, int>();
     }
 }

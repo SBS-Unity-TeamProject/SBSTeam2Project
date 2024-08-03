@@ -1,7 +1,10 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Inventory : MonoBehaviour, ISaveManager
 {
@@ -13,6 +16,12 @@ public class Inventory : MonoBehaviour, ISaveManager
     [Header("UI")]
     [SerializeField] private Transform inventorySlotParent;
     private UI_ItemSlot[] inventoryItemSlot;
+
+
+    [Header("Data base")]
+    public List<ItemData> itemDataBase;
+    public List<InventoryItem> loadedItems;
+
 
     [SerializeField] private ItemData testItem01;
     [SerializeField] private ItemData testItem02;
@@ -37,6 +46,21 @@ public class Inventory : MonoBehaviour, ISaveManager
         ItemDictionary = new Dictionary<ItemData, InventoryItem>();
 
         inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+        StartingItem();
+    }
+
+    private void StartingItem()
+    {
+        if (loadedItems.Count > 0)
+        {
+            foreach (InventoryItem item in loadedItems)
+            {
+                for (int i = 0; i < item.stackSize; i++)
+                {
+                    AddItem(item.data);
+                }
+            }
+        }
     }
 
     private void Update()
@@ -101,24 +125,54 @@ public class Inventory : MonoBehaviour, ISaveManager
 
 
     #region SaveandLoad
-    public void Save()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Load()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void LoadData(GameData _data)
     {
-        throw new System.NotImplementedException();
+        foreach (KeyValuePair<string, int> pair in _data.inventory)
+        {
+            foreach (var item in itemDataBase)
+            {
+                if (item != null && item.itemID == pair.Key)
+                {
+                    InventoryItem itemToLoad = new InventoryItem(item);
+                    itemToLoad.stackSize = pair.Value;
+
+                    loadedItems.Add(itemToLoad);
+                }
+            }
+        }
     }
 
     public void SaveData(ref GameData _data)
     {
-        throw new System.NotImplementedException();
+        _data.inventory.Clear();
+
+        foreach (KeyValuePair<ItemData, InventoryItem> pair in ItemDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemID, pair.Value.stackSize);
+        }
+
     }
+
+
+#if UNITY_EDITOR
+    [ContextMenu("Fill up item data base")]
+    private void FillUpItemDataBase() => itemDataBase = new List<ItemData>(GetItemDataBase());
+
+    private List<ItemData> GetItemDataBase()
+    {
+        List<ItemData> itemDataBase = new List<ItemData>();
+        string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/Data/Items" });
+
+        foreach (string SOName in assetNames)
+        {
+            var SOpath = AssetDatabase.GUIDToAssetPath(SOName);
+            var itemData = AssetDatabase.LoadAssetAtPath<ItemData>(SOpath);
+            itemDataBase.Add(itemData);
+        }
+
+        return itemDataBase;
+    }
+#endif
+
     #endregion
 }
