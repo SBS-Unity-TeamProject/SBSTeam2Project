@@ -1,10 +1,7 @@
-
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class Inventory : MonoBehaviour, ISaveManager
 {
@@ -12,6 +9,7 @@ public class Inventory : MonoBehaviour, ISaveManager
 
     public List<InventoryItem> item;
     public Dictionary<ItemData, InventoryItem> ItemDictionary;
+    public int gold;
 
     [Header("UI")]
     [SerializeField] private Transform inventorySlotParent;
@@ -21,10 +19,6 @@ public class Inventory : MonoBehaviour, ISaveManager
     [Header("Data base")]
     public List<ItemData> itemDataBase;
     public List<InventoryItem> loadedItems;
-
-
-    [SerializeField] private ItemData testItem01;
-    [SerializeField] private ItemData testItem02;
 
     private void Awake()
     {
@@ -60,19 +54,6 @@ public class Inventory : MonoBehaviour, ISaveManager
                     AddItem(item.data);
                 }
             }
-        }
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            AddItem(testItem01);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            AddItem(testItem02);
         }
     }
 

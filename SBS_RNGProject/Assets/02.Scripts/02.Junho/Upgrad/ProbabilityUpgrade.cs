@@ -3,67 +3,84 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.IO;
+using TMPro;
 
-public class ProbabilityUpgrade : MonoBehaviour, IPointerDownHandler, ISaveManager
+public class ProbabilityUpgrade : MonoBehaviour, ISaveManager
 {
     private float[] rareProbs = new float[200];
     private float[] epicProbs = new float[200];
     private float[] uniqueProbs = new float[200];
     private float[] legendProbs = new float[200];
+
+    public float rareProb;
+    public float epicProb;
+    public float uniqueProb;
+    public float legendProb;
+
     public int level = 1;
+
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI level_txt;
+    [SerializeField] private TextMeshProUGUI rare_txt;
+    [SerializeField] private TextMeshProUGUI unique_txt;
+    [SerializeField] private TextMeshProUGUI epic_txt;
+    [SerializeField] private TextMeshProUGUI legend_txt;
 
     private void Start()
     {
-        LoadProbabilitiesFromCSV();
+        LoadProbabilitiesData();
+        UpdateProbabilities(level);
+        UpdateUI();
     }
-
     private void Update()
     {
-        Debug.Log(level);
-
         if (Input.GetKeyDown(KeyCode.U))
         {
-            level++;
+            UpgradeProbabilityLevel();
         }
     }
-
-    public void OnPointerDown(PointerEventData eventData)
+    public void UpgradeProbabilityLevel()
     {
+        if (level >= 200)
+        {
+            return;
+        }
+
+        level++;
         UpdateProbabilities(level);
+        UpdateUI();
     }
 
     public void UpdateProbabilities(int level)
     {
-        float rareProb = rareProbs[level - 1];
-        float epicProb = epicProbs[level - 1];
-        float uniqueProb = uniqueProbs[level - 1];
-        float legendProb = legendProbs[level - 1];
+        rareProb = rareProbs[level - 1];
+        epicProb = epicProbs[level - 1];
+        uniqueProb = uniqueProbs[level - 1];
+        legendProb = legendProbs[level - 1];
+    }
 
+    public void PerformDraw()
+    {
         int result = Mathf.RoundToInt(Random.Range(0f, 100f));
         if (result < rareProb)
         {
-            Debug.Log(rareProb);
             Debug.Log("Rare");
         }
         else if (result < rareProb + uniqueProb)
         {
-            Debug.Log(epicProb);
             Debug.Log("Unique");
         }
         else if (result < rareProb + uniqueProb + epicProb)
         {
-            Debug.Log(uniqueProb);
             Debug.Log("Epic");
         }
         else
         {
-            Debug.Log(legendProb);
             Debug.Log("Legend");
         }
-        Debug.Log(result);
     }
 
-    private void LoadProbabilitiesFromCSV()
+    private void LoadProbabilitiesData()
     {
         string path = Path.Combine(Application.dataPath, "05.Data/DataTable/UpgradeDataTable.csv");
 
@@ -83,6 +100,15 @@ public class ProbabilityUpgrade : MonoBehaviour, IPointerDownHandler, ISaveManag
         {
             Debug.LogError("CSV file not found at path: " + path);
         }
+    }
+
+    private void UpdateUI()
+    {
+        level_txt.text = "Lv." + level;
+        rare_txt.text = rareProb.ToString("F2") + "%";
+        unique_txt.text = uniqueProb.ToString("F2") + "%";
+        epic_txt.text = epicProb.ToString("F2") + "%";
+        legend_txt.text = legendProb.ToString("F2") + "%";
     }
 
     public void LoadData(GameData _data)
