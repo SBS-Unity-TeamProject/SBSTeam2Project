@@ -1,29 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_ItemTooltip : MonoBehaviour
 {
-    [SerializeField]private Image _icon;
-    [SerializeField]private TextMeshProUGUI _itemName;
-    [SerializeField]private TextMeshProUGUI _itemDescription;
-    [SerializeField]private TextMeshProUGUI _itemRarity;
+    public InventoryItem item;
+    [SerializeField] private GameObject popUpTap;
+    [SerializeField] private GameObject assingBtn;
 
-    public void SetTooltip(ItemData item)
+    [SerializeField] private Image icon;
+    [SerializeField] private TextMeshProUGUI itemName;
+    [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private TextMeshProUGUI itemRarity;
+
+    public void OnDisable()
     {
-        _icon.sprite = item.icon;
-        _itemName.text = item.itemName;
-        _itemDescription.text = item.itemDescription;
-        _itemRarity.text = item.itemType.ToString();
+        CleanUpTooltip();
     }
 
-    private void CleanUpTootip()
+    public void SetTooltip(InventoryItem _newitem)
     {
-        _icon = null;
-        _itemName = null;
-        _itemDescription = null;
-        _itemRarity = null;
+        if (_newitem == null)
+            return;
+
+        assingBtn.SetActive(true);
+        item = _newitem;
+
+        icon.sprite = _newitem.data.icon;
+        itemName.text = _newitem.data.itemName;
+        itemDescription.text = _newitem.data.itemDescription;
+        itemRarity.text = _newitem.data.itemType.ToString();
+    }
+
+    public void CleanUpTooltip()
+    {
+        item = null;
+
+        icon.sprite = null;
+        itemName.text = "";
+        itemDescription.text = "";
+        itemRarity.text = "";
+
+        assingBtn.SetActive(false);
+        popUpTap.SetActive(false);
     }
 }

@@ -59,24 +59,31 @@ public class ProbabilityUpgrade : MonoBehaviour, ISaveManager
         legendProb = legendProbs[level - 1];
     }
 
-    public void PerformDraw()
+    public void Gacha()
     {
+        Inventory inventory = Inventory.Instance;
+
         int result = Mathf.RoundToInt(Random.Range(0f, 100f));
+        Debug.Log(result);
         if (result < rareProb)
         {
             Debug.Log("Rare");
+            inventory.RandomRare();
         }
         else if (result < rareProb + uniqueProb)
         {
             Debug.Log("Unique");
+            inventory.RandomUnique();
         }
         else if (result < rareProb + uniqueProb + epicProb)
         {
             Debug.Log("Epic");
+            inventory.RandomEpic();
         }
         else
         {
             Debug.Log("Legend");
+            inventory.RandomLegend();
         }
     }
 

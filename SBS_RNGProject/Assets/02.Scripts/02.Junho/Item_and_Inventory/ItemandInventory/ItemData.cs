@@ -24,6 +24,7 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public string itemDescription;
     public string itemID;
+    public int goldGeneration;
 
     [Range(0, 100)]
     public float dropChance;

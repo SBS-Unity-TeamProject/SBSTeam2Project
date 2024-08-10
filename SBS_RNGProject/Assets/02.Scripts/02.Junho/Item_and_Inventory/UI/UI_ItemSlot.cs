@@ -3,11 +3,11 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using static Unity.Collections.AllocatorManager;
 
-public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
+public class UI_ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private UI_ItemTooltip itemTooltip;
-
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemText;
 
@@ -39,12 +39,12 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
         item = null;
 
         itemImage.sprite = null;
-        itemImage.color = Color.clear;
+        itemImage.color = Color.white;
         itemText.text = "";
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        itemTooltip.SetTooltip(item.data);
+        itemTooltip.SetTooltip(item);
     }
 }

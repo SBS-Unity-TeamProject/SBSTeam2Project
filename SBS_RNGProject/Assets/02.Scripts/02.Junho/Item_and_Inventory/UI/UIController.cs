@@ -11,7 +11,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button button03;
     [SerializeField] private Button button04;
 
+    [Header("Objects")]
+
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject popupFactory;
 
     private void Start()
     {
@@ -34,7 +37,7 @@ public class UIController : MonoBehaviour
 
     private void InventoryButton()
     {
-        Debug.Log("gose");
+        popupFactory.SetActive(false);
 
         if (inventory.activeSelf == false)
         {
