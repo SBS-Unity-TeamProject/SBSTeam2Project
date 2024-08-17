@@ -13,6 +13,8 @@ public class SpeedUpgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speed_txt;
     [SerializeField] private TextMeshProUGUI level_txt;
 
+    [SerializeField] private GetMoney getMoneyScript; // GetMoney 스크립트 참조
+
     private void Start()
     {
         LoadSpeedData();
@@ -57,6 +59,7 @@ public class SpeedUpgrade : MonoBehaviour
         if (speedData.ContainsKey(level))
         {
             speed = speedData[level];
+            getMoneyScript.UpdateSpeed(speed);
         }
         else
         {

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Rare
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: -537720582, guid: d6ef88a809bf3e242a5386985b3df54d, type: 3}
   itemDescription: Rare
   itemID: bea648daf5b569e4a858a369e2f650b0
-  goldGeneration: 50
+  goldGeneration: 100
   dropChance: 0

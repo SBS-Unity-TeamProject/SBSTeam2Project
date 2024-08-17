@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemName: Legend
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: -1278841651, guid: d6ef88a809bf3e242a5386985b3df54d, type: 3}
   itemDescription: asda
   itemID: bd232fbd4ff488d4ab03f403accca00f
-  goldGeneration: 50
+  goldGeneration: 5000
   dropChance: 0

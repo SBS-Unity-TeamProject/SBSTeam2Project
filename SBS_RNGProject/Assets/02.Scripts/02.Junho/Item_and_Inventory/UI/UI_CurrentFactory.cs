@@ -15,6 +15,7 @@ public class UI_CurrentFactory : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI itemRaraty;
     [SerializeField] private TextMeshProUGUI goldGeneration;
+    [SerializeField] private TextMeshProUGUI rarity;
 
     public void UpdateSlot(InventoryItem _newItem)
     {
@@ -34,6 +35,7 @@ public class UI_CurrentFactory : MonoBehaviour
             itemDescription.text = item.data.itemDescription;
             itemRaraty.text = item.data.itemType.ToString();
             goldGeneration.text = "°ñµå »ý¼º·®: " + (item.data.goldGeneration /*/ SpeedUpgrade.speed*/) + "/s";
+            rarity.text = item.data.itemType.ToString();
         }
     }
 
@@ -42,7 +44,7 @@ public class UI_CurrentFactory : MonoBehaviour
         item = null;
 
         itemImage.sprite = null;
-        itemImage.color = Color.white;
+        itemImage.color = itemImage.color = new Color(1f, 1f, 1f, 0f); ;
         itemName.text = "";
         itemDescription.text = "";
         itemRaraty.text = "";

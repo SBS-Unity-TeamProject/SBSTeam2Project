@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   itemName: Unique
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 76844844, guid: d6ef88a809bf3e242a5386985b3df54d, type: 3}
   itemDescription: asdf
   itemID: fb80969004a6ad44fb6742691ed2bd6d
-  goldGeneration: 50
+  goldGeneration: 500
   dropChance: 0

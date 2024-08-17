@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   itemName: Epic
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: -2017787433, guid: d6ef88a809bf3e242a5386985b3df54d, type: 3}
   itemDescription: asdf
   itemID: 320067710208d9342b2527751a51a3a2
-  goldGeneration: 50
+  goldGeneration: 1000
   dropChance: 0

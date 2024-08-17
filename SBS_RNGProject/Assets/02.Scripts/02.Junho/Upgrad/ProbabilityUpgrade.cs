@@ -64,25 +64,25 @@ public class ProbabilityUpgrade : MonoBehaviour, ISaveManager
         Inventory inventory = Inventory.Instance;
 
         int result = Mathf.RoundToInt(Random.Range(0f, 100f));
-        Debug.Log(result);
+        //Debug.Log(result);
         if (result < rareProb)
         {
-            Debug.Log("Rare");
+            //Debug.Log("Rare");
             inventory.RandomRare();
         }
         else if (result < rareProb + uniqueProb)
         {
-            Debug.Log("Unique");
+            //Debug.Log("Unique");
             inventory.RandomUnique();
         }
         else if (result < rareProb + uniqueProb + epicProb)
         {
-            Debug.Log("Epic");
+            //Debug.Log("Epic");
             inventory.RandomEpic();
         }
         else
         {
-            Debug.Log("Legend");
+            //Debug.Log("Legend");
             inventory.RandomLegend();
         }
     }
