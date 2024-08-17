@@ -7,6 +7,8 @@ public class OptionButton : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private GameObject UI;
     bool IsUIon = false;
+
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!IsUIon)
@@ -22,15 +24,10 @@ public class OptionButton : MonoBehaviour, IPointerDownHandler
         
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        IsUIon = false;
+        UI.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
