@@ -22,7 +22,25 @@ public class GetMoney : MonoBehaviour
     private void Update()
     {
         CheckSpeed();
+        RotatingGear();
     }
+
+    private void RotatingGear()
+    {
+        GameObject handle = speedSlider.handleRect.gameObject;
+
+        float minSpeed = 50f;
+        float maxSpeed = 150f;
+        float normalizedValue = (speedUpgrade.speed - 1f) / 3f;
+        float rotationSpeed = Mathf.Lerp(maxSpeed, minSpeed, normalizedValue);
+
+        float rotationAmount = rotationSpeed * Time.deltaTime;
+
+        handle.transform.Rotate(0f, 0f, rotationAmount);
+    }
+
+
+
 
     private void CheckSpeed()
     {

@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour, ISaveManager
     public Dictionary<ItemData, InventoryItem> ItemDictionary;
 
     public InventoryItem[] currentFactory;
-
+    public ItemData currentItem;
 
     [Header("UI")]
     [SerializeField] private Transform inventorySlotParent;
@@ -35,6 +35,8 @@ public class Inventory : MonoBehaviour, ISaveManager
     public List<ItemData> legendItems;
 
     [SerializeField] private ItemData test;
+    [SerializeField] private GameObject slotPrefab;
+
 
     private void Awake()
     {
@@ -126,7 +128,7 @@ public class Inventory : MonoBehaviour, ISaveManager
     }
 
 
-    private void AddItem(ItemData _item)
+    public void AddItem(ItemData _item)
     {
         if (_item == null)
         {
@@ -192,6 +194,14 @@ public class Inventory : MonoBehaviour, ISaveManager
         }
     }
 
+    public void CleanUpPopupFactory(int index)
+    {
+        if (popUpFactorySlot[index] != null)
+        {
+            popUpFactorySlot[index].CleanUpSlot();
+        }
+    }
+
 
     private void UpdateSlotUI()
     {
@@ -204,6 +214,17 @@ public class Inventory : MonoBehaviour, ISaveManager
         for (int i = 0; i < inventoryItemSlot.Length; i++)
         {
             inventoryItemSlot[i].CleanUpSlot();
+        }
+
+        if (item.Count > inventoryItemSlot.Length)
+        {
+
+            for (int i = inventoryItemSlot.Length; i < item.Count; i++)
+            {
+                GameObject newSlot = Instantiate(slotPrefab, inventorySlotParent);
+                UI_ItemSlot slotComponent = newSlot.GetComponent<UI_ItemSlot>();
+                inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+            }
         }
 
         for (int i = 0; i < item.Count && i < inventoryItemSlot.Length; i++)
@@ -233,28 +254,41 @@ public class Inventory : MonoBehaviour, ISaveManager
     }
 
 
+
     #region Gacha
     public void RandomRare()
     {
         int random = Random.Range(0, rareItems.Count);
-        AddItem(rareItems[random]);
+        currentItem = rareItems[random];
+        AddItem(currentItem);
+        Collection.Instance.MarkAsCollected(currentItem);
     }
+
     public void RandomUnique()
     {
         int random = Random.Range(0, uniqueItems.Count);
-        AddItem(uniqueItems[random]);
+        currentItem = uniqueItems[random];
+        AddItem(currentItem);
+        Collection.Instance.MarkAsCollected(currentItem);
     }
+
     public void RandomEpic()
     {
         int random = Random.Range(0, epicItems.Count);
-        AddItem(epicItems[random]);
+        currentItem = epicItems[random];
+        AddItem(currentItem);
+        Collection.Instance.MarkAsCollected(currentItem);
     }
+
     public void RandomLegend()
     {
         int random = Random.Range(0, legendItems.Count);
-        AddItem(legendItems[random]);
+        currentItem = legendItems[random];
+        AddItem(currentItem);
+        Collection.Instance.MarkAsCollected(currentItem);
     }
     #endregion
+
 
     #region SaveandLoad
     public void LoadData(GameData _data)

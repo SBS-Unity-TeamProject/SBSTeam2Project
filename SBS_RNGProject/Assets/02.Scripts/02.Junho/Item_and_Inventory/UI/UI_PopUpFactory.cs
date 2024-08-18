@@ -19,9 +19,13 @@ public class UI_PopUpFactory : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI itemRaraty;
     [SerializeField] private TextMeshProUGUI goldGeneration;
 
+
     public void UpdateSlot(InventoryItem _newItem)
     {
         item = _newItem;
+
+        if (item == null)
+            return;
 
         itemImage.color = Color.white;
 
@@ -40,7 +44,7 @@ public class UI_PopUpFactory : MonoBehaviour, IPointerClickHandler
         item = null;
 
         itemImage.sprite = null;
-        itemImage.color = Color.white;
+        itemImage.color = new Color(1f, 1f, 1f, 0f);
         itemName.text = "";
         itemDescription.text = "";
         itemRaraty.text = "";

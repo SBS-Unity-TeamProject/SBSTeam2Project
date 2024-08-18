@@ -43,5 +43,6 @@ public class UI_ItemTooltip : MonoBehaviour
 
         assingBtn.SetActive(false);
         popUpTap.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }

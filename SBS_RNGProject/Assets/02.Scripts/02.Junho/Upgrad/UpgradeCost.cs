@@ -73,6 +73,12 @@ public class UpgradeCost : MonoBehaviour
     public void UpgradeProbabilityLevel()
     {
         int currentLevel = probability.level;
+
+        if (currentLevel >= 200)
+        {
+            return;
+        }
+
         if (probabilityUpgradeCostTable.ContainsKey(currentLevel))
         {
             int cost = probabilityUpgradeCostTable[currentLevel];

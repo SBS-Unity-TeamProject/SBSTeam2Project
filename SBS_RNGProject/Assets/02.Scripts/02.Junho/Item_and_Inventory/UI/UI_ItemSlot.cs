@@ -13,6 +13,11 @@ public class UI_ItemSlot : MonoBehaviour, IPointerClickHandler
 
     public InventoryItem item;
 
+    private void Start()
+    {
+        itemTooltip = GameManager.Instance.tootips;
+    }
+
     public void UpdateSlot(InventoryItem _newItem)
     {
         item = _newItem;
@@ -39,12 +44,13 @@ public class UI_ItemSlot : MonoBehaviour, IPointerClickHandler
         item = null;
 
         itemImage.sprite = null;
-        itemImage.color = Color.white;
+        itemImage.color = new Color(1,1,1,0);
         itemText.text = "";
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        GameManager.Instance.tootips.gameObject.SetActive(true);
         itemTooltip.SetTooltip(item);
     }
 }
