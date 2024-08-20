@@ -8,7 +8,7 @@ public class RotatingRandomIcon : MonoBehaviour
 
     private void OnEnable()
     {
-        speed = Random.Range(-0.05f, 0.05f);
+        speed = Random.Range(-0.03f, 0.03f);
     }
 
     private void Update()
