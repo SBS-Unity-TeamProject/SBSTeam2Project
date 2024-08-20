@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wave
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: "\uD30C\uB3D9\uC758 \uAE30\uC5B4"
-  icon: {fileID: 0}
+  itemName: "\uD30C\uB3D9\uC758 \uD1B1\uB2C8"
+  icon: {fileID: 21300000, guid: 1c14cbbc4875080498acfc27284206f9, type: 3}
   itemDescription: 
   itemID: 547527c2ef96ee74db57e108d476e305
   goldGeneration: 0

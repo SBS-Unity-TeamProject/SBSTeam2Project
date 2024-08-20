@@ -5,30 +5,45 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private Button button01;
+    [SerializeField] private Button collectionButton;
     [SerializeField] private Button button02;
     [SerializeField] private Button inventoryButton;
     [SerializeField] private Button button03;
-    [SerializeField] private Button button04;
+    [SerializeField] private Button optionButton;
 
     [Header("Objects")]
+    [SerializeField] private GameObject collection;
+    [SerializeField] private GameObject popupCollection;
 
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject popupFactory;
 
+    [SerializeField] private GameObject option;
+
+
     private void Start()
     {
-        button01.onClick.AddListener(() => Button01());
+        collectionButton.onClick.AddListener(() => CollectionButton());
         button02.onClick.AddListener(() => Button02());
         inventoryButton.onClick.AddListener(() => InventoryButton());
         button03.onClick.AddListener(() => Button04());
-        button04.onClick.AddListener(() => Button05());
+        optionButton.onClick.AddListener(() => OptionButton());
     }
 
-    private void Button01()
+    private void CollectionButton()
     {
-        return;
+        CloseInventory();
+
+        if (collection.activeSelf == false)
+        {
+            collection.SetActive(true);
+        }
+        else
+        {
+            CloseCollection();
+        }
     }
+
 
     private void Button02()
     {
@@ -37,25 +52,49 @@ public class UIController : MonoBehaviour
 
     private void InventoryButton()
     {
-        popupFactory.SetActive(false);
+        CloseCollection();
 
         if (inventory.activeSelf == false)
         {
             inventory.SetActive(true);
         }
-        else
+        else if (inventory.activeSelf == true)
         {
-            inventory.SetActive(false);
+            CloseInventory();
         }
     }
+
 
     private void Button04()
     {
         return;
     }
 
-    private void Button05()
+    private void OptionButton()
     {
-        return;
+        if (option.activeSelf == false)
+        {
+            option.SetActive(true);
+        }
+        else if (option.activeSelf == true)
+        {
+            option.SetActive(false);
+        }
     }
+
+    #region Close
+
+    private void CloseCollection()
+    {
+        collection.GetComponentInChildren<UI_RarlityArray>().ChangeUI(0);
+        popupCollection.SetActive(false);
+        collection.SetActive(false);
+    }
+    private void CloseInventory()
+    {
+        popupFactory.SetActive(false);
+        inventory.SetActive(false);
+    }
+
+    #endregion
 }

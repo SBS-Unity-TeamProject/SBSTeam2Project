@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: "\uBD88\uC758 \uAE30\uC5B4"
+  itemName: "\uBD88\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: 6043b381602c66345b678defff7b704e, type: 3}
   itemDescription: 
   itemID: f7a250bdce0f0704aa10654d4c82271d

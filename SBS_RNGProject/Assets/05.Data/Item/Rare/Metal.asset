@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Metal
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: "\uAE08\uC18D\uC758 \uAE30\uC5B4"
+  itemName: "\uAE08\uC18D\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: b7dd4f205c602e7409e23fc47c60fc55, type: 3}
   itemDescription: 
   itemID: 54af8977ff67a4146bae9e8580e3d61b

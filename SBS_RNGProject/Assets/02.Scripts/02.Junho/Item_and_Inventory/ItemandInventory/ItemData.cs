@@ -23,6 +23,7 @@ public class ItemData : ScriptableObject
     public string itemName;
     public Sprite icon;
     public string itemDescription;
+    public string itemDefine;
     public string itemID;
     public int goldGeneration;
 

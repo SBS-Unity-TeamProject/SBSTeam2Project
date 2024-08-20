@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Creation
   m_EditorClassIdentifier: 
   itemType: 4
-  itemName: "\uCC3D\uC870\uC758 \uD0DC\uC5FD"
+  itemName: "\uCC3D\uC870\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: 519cda265513c75489c3a0c78d4521cd, type: 3}
   itemDescription: 
   itemID: 4dcd176c8e5959e44bdd6f61b82f2b07

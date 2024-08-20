@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: "\uD759\uC758 \uD0DC\uC5FD"
+  itemName: "\uD759\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: 2eb4a27b124e048408f8b271d7d819fd, type: 3}
   itemDescription: 
   itemID: 18e4b9deaec4f434db304301a6696a5a

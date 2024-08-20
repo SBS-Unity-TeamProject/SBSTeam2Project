@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Destruction
   m_EditorClassIdentifier: 
   itemType: 4
-  itemName: "\uC18C\uBA78\uC758 \uD0DC\uC5FD"
+  itemName: "\uC18C\uBA78\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: ed70999ff8a13a147aea0eb1fd46337f, type: 3}
   itemDescription: 
   itemID: 714ea001cee9a7341b2325382671bc5a

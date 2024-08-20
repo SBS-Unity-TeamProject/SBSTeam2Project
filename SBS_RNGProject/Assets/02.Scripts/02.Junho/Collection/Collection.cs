@@ -24,12 +24,6 @@ public class Collection : MonoBehaviour
     private void Start()
     {
         InitializeItemLists();
-
-        foreach (var item in collectedItems)
-        {
-            Debug.Log(item.Key);
-            Debug.Log(item.Value);
-        }
     }
 
     public void MarkAsCollected(ItemData item)

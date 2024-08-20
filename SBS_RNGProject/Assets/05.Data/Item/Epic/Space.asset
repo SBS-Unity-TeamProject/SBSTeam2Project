@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Space
   m_EditorClassIdentifier: 
   itemType: 3
-  itemName: "\uACF5\uAC04\uC758 \uD0DC\uC5FD"
+  itemName: "\uACF5\uAC04\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: 9d738f9acd086e64f8f9d7ce9e954efa, type: 3}
   itemDescription: 
   itemID: 9f787d20bfa2dc749a5444351f17a4b9
