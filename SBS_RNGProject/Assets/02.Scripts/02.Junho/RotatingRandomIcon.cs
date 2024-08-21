@@ -8,11 +8,11 @@ public class RotatingRandomIcon : MonoBehaviour
 
     private void OnEnable()
     {
-        speed = Random.Range(-0.03f, 0.03f);
+        speed = Random.Range(-15f, 15f);
     }
 
     private void Update()
     {
-        this.gameObject.transform.Rotate(0f, 0f, speed);
+        this.gameObject.transform.Rotate(0f, 0f, speed * Time.deltaTime);
     }
 }

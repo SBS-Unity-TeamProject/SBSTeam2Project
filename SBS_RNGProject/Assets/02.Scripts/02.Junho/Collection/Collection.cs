@@ -1,12 +1,27 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collection : MonoBehaviour
 {
     public static Collection Instance;
 
     public Dictionary<string, bool> collectedItems = new Dictionary<string, bool>();
+
+    [Header("New Item Popup UI")]
+    [SerializeField] private GameObject popup;
+    [SerializeField] private GameObject text;
+    [SerializeField] private GameObject gear;
+    [SerializeField] private GameObject button;
+
+    [SerializeField] private TextMeshProUGUI name;
+    [SerializeField] private TextMeshProUGUI rarity;
+    [SerializeField] private Image icon;
+
+
 
     private void Awake()
     {
@@ -53,7 +68,25 @@ public class Collection : MonoBehaviour
 
     private void ShowNewItemPopup(ItemData item)
     {
-        Debug.Log("New item collected: " + item.itemName);
+        StartCoroutine(GetNewItem(item));
+    }
+
+    private IEnumerator GetNewItem(ItemData item)
+    {
+        popup.SetActive(true);
+        text.SetActive(true);
+        yield return new WaitForSeconds(1);
+        gear.SetActive(true);
+        SetGearInfo(item);
+        yield return new WaitForSeconds(2);
+        button.SetActive(true);
+    }
+
+    private void SetGearInfo(ItemData item)
+    {
+        name.text = item.itemName;
+        rarity.text = item.itemType.ToString();
+        icon.sprite = item.icon;
     }
 
     #region Init Dictionary

@@ -8,6 +8,6 @@ public class RotatingIcon : MonoBehaviour
 
     private void Update()
     {
-        this.gameObject.transform.Rotate(0f, 0f, speed);
+        this.gameObject.transform.Rotate(0f, 0f, speed * Time.deltaTime);
     }
 }
