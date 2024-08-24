@@ -22,31 +22,17 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Screen.SetResolution(1080, 1920, true);
+        Application.targetFrameRate = 120;
 
-        // SetSafeArea();
+        int targetWidth = 1080;
+        int targetHeight = 1920;
+        bool fullscreen = true;
+
+        Screen.SetResolution(targetWidth, targetHeight, fullscreen);
     }
 
     void Update()
     {
         
     }
-
-    private void SetSafeArea()
-    {
-        Rect safeArea = Screen.safeArea;
-        RectTransform rectTransform = GetComponent<RectTransform>();
-
-        Vector2 anchorMin = safeArea.position;
-        Vector2 anchorMax = safeArea.position + safeArea.size;
-        anchorMin.x /= Screen.width;
-        anchorMin.y /= Screen.height;
-        anchorMax.x /= Screen.width;
-        anchorMax.y /= Screen.height;
-
-        rectTransform.anchorMin = anchorMin;
-        rectTransform.anchorMax = anchorMax;
-    }
-
-
 }
