@@ -3,7 +3,7 @@ using UnityEngine;
 using System.IO;
 using TMPro;
 
-public class SpeedUpgrade : MonoBehaviour
+public class SpeedUpgrade : MonoBehaviour, ISaveManager
 {
     public int level = 1;
     public float speed;
@@ -92,5 +92,16 @@ public class SpeedUpgrade : MonoBehaviour
     {
         speed_txt.text = "현재 속도: " + speed.ToString("F2") + "s";
         level_txt.text = "Lv." + level.ToString();
+    }
+
+    public void LoadData(GameData _data)
+    {
+        level = _data.speedLevel;
+        UpdateUI();
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.speedLevel = level;
     }
 }

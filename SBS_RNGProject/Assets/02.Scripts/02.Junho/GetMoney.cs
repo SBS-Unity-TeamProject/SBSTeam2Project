@@ -79,7 +79,6 @@ public class GetMoney : MonoBehaviour
                 continue;
 
             Inventory.Instance.gold += Inventory.Instance.currentFactory[i].data.goldGeneration;
-            Debug.Log(i + ": " + Inventory.Instance.currentFactory[i].data.goldGeneration + "Gold+");
         }
 
         UpdateGold();

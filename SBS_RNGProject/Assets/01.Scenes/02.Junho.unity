@@ -5696,7 +5696,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 523443304}
-  - component: {fileID: 523443305}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -5727,21 +5726,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &523443305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523443303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d36331d8f1a014d823598632599c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSettings:
-  - {fileID: 1793745832}
-  - {fileID: 855668070}
 --- !u!1 &525665648
 GameObject:
   m_ObjectHideFlags: 0
@@ -17121,7 +17105,7 @@ MonoBehaviour:
   text: {fileID: 2143297951}
   gear: {fileID: 1236232447}
   button: {fileID: 680212741}
-  itemName: {fileID: 0}
+  itemName: {fileID: 1118050878}
   rarity: {fileID: 1598584497}
   icon: {fileID: 1573076762}
 --- !u!4 &1488966553
@@ -22240,7 +22224,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.097
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -22387,6 +22371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009698237}
   - component: {fileID: 2009698236}
+  - component: {fileID: 2009698238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -22422,6 +22407,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009698238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009698235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d36331d8f1a014d823598632599c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSettings:
+  - {fileID: 1793745832}
+  - {fileID: 855668070}
 --- !u!1 &2040051916
 GameObject:
   m_ObjectHideFlags: 0
@@ -24468,7 +24468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ec520ee65d8be41b8bfc9be182a6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: data
+  fileName: data.dev
 --- !u!1 &1229754880265699738
 GameObject:
   m_ObjectHideFlags: 0

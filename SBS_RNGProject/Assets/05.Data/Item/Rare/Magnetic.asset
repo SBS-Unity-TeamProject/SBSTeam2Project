@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: "\uC790\uAE30\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: 5638eefb05d3d4f48b6384dddf7983d5, type: 3}
   itemDescription: 
+  itemDefine: 
   itemID: fc7ad4c7c8d88fe48a8a39d457c6f0b5
-  goldGeneration: 0
+  goldGeneration: 500
   dropChance: 0

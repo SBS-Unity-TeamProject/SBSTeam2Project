@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -50,6 +51,10 @@ public class Inventory : MonoBehaviour, ISaveManager
             Destroy(this.gameObject);
             return;
         }
+
+        item = new List<InventoryItem>();
+        ItemDictionary = new Dictionary<ItemData, InventoryItem>();
+        currentFactory = new InventoryItem[5];
     }
 
     private void Start()
@@ -59,10 +64,6 @@ public class Inventory : MonoBehaviour, ISaveManager
         epicItems = new List<ItemData>();
         legendItems = new List<ItemData>();
         InitializeItemLists();
-
-        item = new List<InventoryItem>();
-        ItemDictionary = new Dictionary<ItemData, InventoryItem>();
-        currentFactory = new InventoryItem[5];
 
         inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         currentFactorySlot = currentFactorySlotParent.GetComponentsInChildren<UI_CurrentFactory>();
@@ -112,6 +113,8 @@ public class Inventory : MonoBehaviour, ISaveManager
     private List<ItemData> LoadItemsFromPath(string path)
     {
         List<ItemData> items = new List<ItemData>();
+
+#if UNITY_EDITOR
         string[] assetGuids = AssetDatabase.FindAssets("t:ItemData", new[] { path });
 
         foreach (string guid in assetGuids)
@@ -123,16 +126,17 @@ public class Inventory : MonoBehaviour, ISaveManager
                 items.Add(item);
             }
         }
+#endif
 
         return items;
     }
+
 
 
     public void AddItem(ItemData _item)
     {
         if (_item == null)
         {
-            Debug.LogError("Attempted to add a null item to inventory.");
             return;
         }
 
@@ -170,8 +174,10 @@ public class Inventory : MonoBehaviour, ISaveManager
     }
 
 
+
     public void EquipFactory(InventoryItem factoryItem, int sequence)
     {
+
         if (sequence >= 0 && sequence < currentFactory.Length)
         {
             UnequipFactory(sequence);
@@ -181,7 +187,11 @@ public class Inventory : MonoBehaviour, ISaveManager
 
             UpdateSlotUI();
         }
+        else
+        {
+        }
     }
+
 
     public void UnequipFactory(int index)
     {
@@ -207,7 +217,6 @@ public class Inventory : MonoBehaviour, ISaveManager
     {
         if (inventoryItemSlot == null || currentFactorySlot == null || popUpFactorySlot == null)
         {
-            Debug.LogError("UI slots not initialized properly.");
             return;
         }
 
@@ -308,7 +317,26 @@ public class Inventory : MonoBehaviour, ISaveManager
                 }
             }
         }
+
+        for (int i = 0; i < _data.currentFactory.Length; i++)
+        {
+            string itemID = _data.currentFactory[i];
+            if (itemID != "None")
+            {
+                ItemData matchedItem = itemDataBase.FirstOrDefault(item => item != null && item.itemID == itemID);
+                if (matchedItem != null)
+                {
+                    InventoryItem itemToEquip = new InventoryItem(matchedItem);
+                    EquipFactory(itemToEquip, i);
+                }
+            }
+            else
+            {
+            }
+        }
     }
+
+
 
     public void SaveData(ref GameData _data)
     {
@@ -321,6 +349,17 @@ public class Inventory : MonoBehaviour, ISaveManager
             _data.inventory.Add(pair.Key.itemID, pair.Value.stackSize);
         }
 
+        for (int i = 0; i < currentFactory.Length; i++)
+        {
+            if (currentFactory[i] != null)
+            {
+                _data.currentFactory[i] = currentFactory[i].data.itemID;
+            }
+            else
+            {
+                _data.currentFactory[i] = "None";
+            }
+        }
     }
 
 

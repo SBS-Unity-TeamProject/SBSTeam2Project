@@ -5,9 +5,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Collection : MonoBehaviour
+public class Collection : MonoBehaviour, ISaveManager
 {
     public static Collection Instance;
+    private bool isInit;
 
     public Dictionary<string, bool> collectedItems = new Dictionary<string, bool>();
 
@@ -36,16 +37,10 @@ public class Collection : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        InitializeItemLists();
-    }
-
     public void MarkAsCollected(ItemData item)
     {
         if (item == null)
         {
-            Debug.LogError("Item is null, cannot mark as collected.");
             return;
         }
 
@@ -119,6 +114,8 @@ public class Collection : MonoBehaviour
     private List<ItemData> LoadItemsFromPath(string path)
     {
         List<ItemData> items = new List<ItemData>();
+
+#if UNITY_EDITOR
         string[] assetGuids = AssetDatabase.FindAssets("t:ItemData", new[] { path });
 
         foreach (string guid in assetGuids)
@@ -130,8 +127,38 @@ public class Collection : MonoBehaviour
                 items.Add(item);
             }
         }
+#endif
 
         return items;
+    }
+
+    public void LoadData(GameData _data)
+    {
+
+        if (_data.collectedItems == null || _data.collectedItems.Count == 0)
+        {
+            InitializeItemLists();
+        }
+        else
+        {
+            collectedItems.Clear();
+
+            foreach (KeyValuePair<string, bool> pair in _data.collectedItems)
+            {
+                collectedItems.Add(pair.Key, pair.Value);
+            }
+        }
+    }
+
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.collectedItems.Clear();
+
+        foreach (var pair in collectedItems)
+        {
+            _data.collectedItems[pair.Key] = pair.Value;
+        }
     }
     #endregion
 }
