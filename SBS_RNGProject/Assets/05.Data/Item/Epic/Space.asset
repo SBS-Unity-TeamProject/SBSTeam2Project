@@ -15,8 +15,11 @@ MonoBehaviour:
   itemType: 3
   itemName: "\uACF5\uAC04\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: 9d738f9acd086e64f8f9d7ce9e954efa, type: 3}
-  itemDescription: 
-  itemDefine: 
+  itemDescription: "\uB05D\uC5C6\uB294 \uC5EC\uBC31\uC18D \uBAA8\uB4E0 \uAC83\uC774
+    \uC790\uB9AC\uD55C \uADF8 \uC548\uC5D0 \uBB34\uC218\uD55C \uAC00\uB2A5\uC131\uC774
+    \uC228\uC26C\uB77C"
+  itemDefine: "\uB05D\uC5C6\uB294 \uC5EC\uBC31\uC18D \uBAA8\uB4E0 \uAC83\uC774 \uC790\uB9AC\uD55C
+    \uADF8 \uC548\uC5D0 \uBB34\uC218\uD55C \uAC00\uB2A5\uC131\uC774 \uC228\uC26C\uB77C"
   itemID: 9f787d20bfa2dc749a5444351f17a4b9
   goldGeneration: 3000
   dropChance: 0

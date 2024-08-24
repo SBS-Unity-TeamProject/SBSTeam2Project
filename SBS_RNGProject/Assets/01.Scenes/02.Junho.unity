@@ -13710,7 +13710,7 @@ GameObject:
   - component: {fileID: 1162574624}
   - component: {fileID: 1162574623}
   m_Layer: 5
-  m_Name: "Rare - \uC815\uC758\uC758 \uD1B1\uB2C8"
+  m_Name: "Rare - \uADDC\uC815\uC758 \uD1B1\uB2C8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21305,7 +21305,7 @@ GameObject:
   - component: {fileID: 1852004596}
   - component: {fileID: 1852004595}
   m_Layer: 5
-  m_Name: "Rare - \uC0C1\uBC18\uC758 \uD1B1\uB2C8"
+  m_Name: "Rare - \uC9C8\uC11C\uC758 \uD1B1\uB2C8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

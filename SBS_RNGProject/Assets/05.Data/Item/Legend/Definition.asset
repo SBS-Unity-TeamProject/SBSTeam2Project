@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Definition
   m_EditorClassIdentifier: 
   itemType: 4
-  itemName: "\uC815\uC758\uC758 \uD1B1\uB2C8"
+  itemName: "\uADDC\uC815\uC758 \uD1B1\uB2C8"
   icon: {fileID: 21300000, guid: cd89565c7bf949d4ba047e7331ba57b5, type: 3}
   itemDescription: 
-  itemDefine: 
+  itemDefine: "\uCC3D\uC870 \uC774\uC804\uACFC \uC18C\uBA78 \uC774\uD6C4\uAE4C\uC9C0
+    \uB9CC\uBB3C\uC744 \uADDC\uC815\uD558\uB9AC"
   itemID: 5d613266bde02924daa95373491cf7cb
   goldGeneration: 5000
   dropChance: 0
