@@ -17,7 +17,7 @@ public class Collection : MonoBehaviour
     [SerializeField] private GameObject gear;
     [SerializeField] private GameObject button;
 
-    [SerializeField] private TextMeshProUGUI name;
+    [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI rarity;
     [SerializeField] private Image icon;
 
@@ -84,7 +84,7 @@ public class Collection : MonoBehaviour
 
     private void SetGearInfo(ItemData item)
     {
-        name.text = item.itemName;
+        itemName.text = item.itemName;
         rarity.text = item.itemType.ToString();
         icon.sprite = item.icon;
     }

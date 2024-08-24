@@ -17121,7 +17121,7 @@ MonoBehaviour:
   text: {fileID: 2143297951}
   gear: {fileID: 1236232447}
   button: {fileID: 680212741}
-  name: {fileID: 1118050878}
+  itemName: {fileID: 0}
   rarity: {fileID: 1598584497}
   icon: {fileID: 1573076762}
 --- !u!4 &1488966553
@@ -27723,7 +27723,35 @@ MonoBehaviour:
   inventorySlotParent: {fileID: 1319972816}
   currentFactorySlotParent: {fileID: 1541386417}
   popUpFactoryUI: {fileID: 1861171756}
-  itemDataBase: []
+  itemDataBase:
+  - {fileID: 11400000, guid: 1f94412b29297cc4c81436640180612a, type: 2}
+  - {fileID: 11400000, guid: 220a8735641b045408cee1c63efafdcc, type: 2}
+  - {fileID: 11400000, guid: 9f787d20bfa2dc749a5444351f17a4b9, type: 2}
+  - {fileID: 11400000, guid: dd98baf80b756f045bdceffb9f8c551e, type: 2}
+  - {fileID: 11400000, guid: e748bac98c402f64db50cf18f44cad46, type: 2}
+  - {fileID: 11400000, guid: 4dcd176c8e5959e44bdd6f61b82f2b07, type: 2}
+  - {fileID: 11400000, guid: 5d613266bde02924daa95373491cf7cb, type: 2}
+  - {fileID: 11400000, guid: 714ea001cee9a7341b2325382671bc5a, type: 2}
+  - {fileID: 11400000, guid: 9347e558b3f4d754b884d36915820e2a, type: 2}
+  - {fileID: 11400000, guid: 18e4b9deaec4f434db304301a6696a5a, type: 2}
+  - {fileID: 11400000, guid: 88a2f86793a567e4aa167d3fd3cf046d, type: 2}
+  - {fileID: 11400000, guid: be8440de61303524daf3531e67bbf6c5, type: 2}
+  - {fileID: 11400000, guid: f7a250bdce0f0704aa10654d4c82271d, type: 2}
+  - {fileID: 11400000, guid: 1237d6dcb36d22b4dad9370ff7502988, type: 2}
+  - {fileID: 11400000, guid: fc7ad4c7c8d88fe48a8a39d457c6f0b5, type: 2}
+  - {fileID: 11400000, guid: 54af8977ff67a4146bae9e8580e3d61b, type: 2}
+  - {fileID: 11400000, guid: 99ef55fa0be0a94419e8bca34a646356, type: 2}
+  - {fileID: 11400000, guid: 446e4f6835ea4584ab6823aef4961c5a, type: 2}
+  - {fileID: 11400000, guid: 547527c2ef96ee74db57e108d476e305, type: 2}
+  - {fileID: 11400000, guid: 6f4373be7f5c1624fa5c074fb76969fc, type: 2}
+  - {fileID: 11400000, guid: 993e6d28d59a62d4fa913ce3e76fcf86, type: 2}
+  - {fileID: 11400000, guid: 411db9edb2e3e27478a43420d81ea0f9, type: 2}
+  - {fileID: 11400000, guid: 6d4233c38c0b76e469d3be4d062c2f40, type: 2}
+  - {fileID: 11400000, guid: 4966581ce711e034eaf72ff61aff3472, type: 2}
+  - {fileID: 11400000, guid: 0210bf490b5877644ae8501e40b04366, type: 2}
+  - {fileID: 11400000, guid: 0a8400bfbe8797d4db01010aad9e86fe, type: 2}
+  - {fileID: 11400000, guid: 0261676649bb5434f946708ccf88b6fa, type: 2}
+  - {fileID: 11400000, guid: 13bdf2a2104615348a3c83ff5eda62d0, type: 2}
   loadedItems: []
   rareItems: []
   uniqueItems: []

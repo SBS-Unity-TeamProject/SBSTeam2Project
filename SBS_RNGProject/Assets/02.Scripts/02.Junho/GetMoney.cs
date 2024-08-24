@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -71,11 +72,14 @@ public class GetMoney : MonoBehaviour
     {
         for (int i = 0; i < Inventory.Instance.currentFactory.Length; i++)
         {
-            if (Inventory.Instance.currentFactory[i] != null)
-            {
-                Inventory.Instance.gold += Inventory.Instance.currentFactory[i].data.goldGeneration;
-                Debug.Log(i + ": " + Inventory.Instance.currentFactory[i].data.goldGeneration + "Gold+");
-            }
+            if (Inventory.Instance.currentFactory[i].IsUnityNull())
+                continue;
+
+            if (Inventory.Instance.currentFactory[i].data.IsUnityNull())
+                continue;
+
+            Inventory.Instance.gold += Inventory.Instance.currentFactory[i].data.goldGeneration;
+            Debug.Log(i + ": " + Inventory.Instance.currentFactory[i].data.goldGeneration + "Gold+");
         }
 
         UpdateGold();

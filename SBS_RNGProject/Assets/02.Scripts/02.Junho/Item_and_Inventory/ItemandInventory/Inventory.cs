@@ -293,6 +293,8 @@ public class Inventory : MonoBehaviour, ISaveManager
     #region SaveandLoad
     public void LoadData(GameData _data)
     {
+        gold = _data.gold;
+
         foreach (KeyValuePair<string, int> pair in _data.inventory)
         {
             foreach (var item in itemDataBase)
@@ -310,6 +312,8 @@ public class Inventory : MonoBehaviour, ISaveManager
 
     public void SaveData(ref GameData _data)
     {
+        _data.gold = gold;
+
         _data.inventory.Clear();
 
         foreach (KeyValuePair<ItemData, InventoryItem> pair in ItemDictionary)
@@ -327,12 +331,16 @@ public class Inventory : MonoBehaviour, ISaveManager
     private List<ItemData> GetItemDataBase()
     {
         List<ItemData> itemDataBase = new List<ItemData>();
-        string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/Data/Items" });
+        string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/05.Data/Item" });
 
         foreach (string SOName in assetNames)
         {
             var SOpath = AssetDatabase.GUIDToAssetPath(SOName);
             var itemData = AssetDatabase.LoadAssetAtPath<ItemData>(SOpath);
+
+            if (itemData == null)
+                continue;
+
             itemDataBase.Add(itemData);
         }
 

@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -28,12 +29,12 @@ public class UI_CurrentFactory : MonoBehaviour
     {
         item = _newItem;
 
-        if (item == null)
+        if (item.IsUnityNull() || item.data.IsUnityNull())
             return;
 
         itemImage.color = Color.white;
 
-        if (item != null)
+        if (item.data != null)
         {
             removeButton.gameObject.SetActive(true);
             itemImage.sprite = item.data.icon;
