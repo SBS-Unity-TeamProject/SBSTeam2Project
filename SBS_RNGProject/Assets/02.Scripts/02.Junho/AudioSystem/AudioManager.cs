@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
 {
@@ -41,7 +39,7 @@ public class AudioManager : MonoBehaviour
         if (!playBGM)
         {
             StopAllBgm();
-        }    
+        }
         else
         {
             if (!bgm[bgmIndex].isPlaying)

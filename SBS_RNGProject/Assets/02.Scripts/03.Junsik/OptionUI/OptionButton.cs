@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,9 +17,9 @@ public class OptionButton : MonoBehaviour, IPointerDownHandler
         else
         {
             UI.SetActive(false);
-            IsUIon=false;
+            IsUIon = false;
         }
-        
+
     }
 
     private void Awake()

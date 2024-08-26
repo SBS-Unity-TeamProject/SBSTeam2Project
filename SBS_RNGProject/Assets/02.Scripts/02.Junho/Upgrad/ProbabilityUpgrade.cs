@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using System.IO;
 using TMPro;
+using UnityEngine;
 
 public class ProbabilityUpgrade : MonoBehaviour, ISaveManager
 {

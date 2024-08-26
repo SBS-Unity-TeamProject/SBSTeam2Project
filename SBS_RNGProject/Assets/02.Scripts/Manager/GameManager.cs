@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Screen.SetResolution(540, 860, false);
+
         if (Instance == null)
         {
             Instance = this;

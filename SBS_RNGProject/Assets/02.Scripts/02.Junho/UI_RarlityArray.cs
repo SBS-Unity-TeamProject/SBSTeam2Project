@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UI_RarlityArray : MonoBehaviour
@@ -46,7 +44,7 @@ public class UI_RarlityArray : MonoBehaviour
         else
             currentUI--;
 
-        for(int i = 0;i < uiArray.Length;i++)
+        for (int i = 0; i < uiArray.Length; i++)
         {
             uiArray[i].SetActive(false);
         }
