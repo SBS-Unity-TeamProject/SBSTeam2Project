@@ -4,7 +4,8 @@ SBS 게임 아카테미 주말반 팀 프로젝트
 프로젝트 소개
 -------------
 
-![Alt text](https://drive.google.com/file/d/1-bLll7rLkeuCDTmJdKvgGlDlGaK5zzQe/view?usp=drive_link)
+![Example GIF](resources/SBS_20240720_20240824_Team2.gif)
+
 
 
 #### 1. 프로젝트 명칭 : 공장 자동화
